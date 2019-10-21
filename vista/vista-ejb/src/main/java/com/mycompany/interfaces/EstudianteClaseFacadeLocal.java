@@ -6,6 +6,7 @@
 package com.mycompany.interfaces;
 
 import com.mycompany.entity.EstudianteClase;
+import com.mycompany.entity.Vista;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,5 +30,5 @@ public interface EstudianteClaseFacadeLocal {
     List<EstudianteClase> findRange(int[] range);
 
     int count();
-    
+ 
 }

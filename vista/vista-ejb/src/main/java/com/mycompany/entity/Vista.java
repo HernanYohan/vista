@@ -19,18 +19,11 @@ import javax.persistence.Table;
 @Table(name = "vista")
 public class Vista implements Serializable{
     @Id
-    
-    @Column(name = "id_estudiante")
-    private int idEstudiante;
-    
-    @Column(name = "enombre")
-    private String estudiante;
-    
-    @Column(name = "id_clase")
-    private int idClase;
-    
-    @Column(name = "nombre")
+    @Column
     private String clase;
+
+    @Column
+    private String estudiante;
 
     @Column
     private int nota;
@@ -38,36 +31,10 @@ public class Vista implements Serializable{
     public Vista() {
     }
 
-    public Vista(int idEstudiante, String estudiante, int idClase, String clase, int nota) {
-        this.idEstudiante = idEstudiante;
-        this.estudiante = estudiante;
-        this.idClase = idClase;
+    public Vista(String clase, String estudiante, int nota) {
         this.clase = clase;
-        this.nota = nota;
-    }
-
-    public int getIdEstudiante() {
-        return idEstudiante;
-    }
-
-    public void setIdEstudiante(int idEstudiante) {
-        this.idEstudiante = idEstudiante;
-    }
-
-    public String getEstudiante() {
-        return estudiante;
-    }
-
-    public void setEstudiante(String estudiante) {
         this.estudiante = estudiante;
-    }
-
-    public int getIdClase() {
-        return idClase;
-    }
-
-    public void setIdClase(int idClase) {
-        this.idClase = idClase;
+        this.nota = nota;
     }
 
     public String getClase() {
@@ -78,6 +45,14 @@ public class Vista implements Serializable{
         this.clase = clase;
     }
 
+    public String getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(String estudiante) {
+        this.estudiante = estudiante;
+    }
+
     public int getNota() {
         return nota;
     }
@@ -86,7 +61,4 @@ public class Vista implements Serializable{
         this.nota = nota;
     }
 
-   
-    
-    
 }

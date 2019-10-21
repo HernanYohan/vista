@@ -5,8 +5,12 @@
  */
 package com.my.company.bean;
 
+import com.mycompany.entity.Clase;
 import com.mycompany.interfaces.EstudianteFacadeLocal;
 import com.mycompany.entity.Estudiante;
+import com.mycompany.entity.EstudianteClase;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +32,7 @@ public class EstudianteFacade extends AbstractFacade<Estudiante> implements Estu
     public EstudianteFacade() {
         super(Estudiante.class);
     }
+
+    
     
 }

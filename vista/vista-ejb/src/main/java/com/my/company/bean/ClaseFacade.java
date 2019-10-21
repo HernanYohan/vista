@@ -7,9 +7,11 @@ package com.my.company.bean;
 
 import com.mycompany.interfaces.ClaseFacadeLocal;
 import com.mycompany.entity.Clase;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -28,5 +30,7 @@ public class ClaseFacade extends AbstractFacade<Clase> implements ClaseFacadeLoc
     public ClaseFacade() {
         super(Clase.class);
     }
+
+    
     
 }

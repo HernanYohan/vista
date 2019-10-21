@@ -16,16 +16,14 @@ public class ClaseDto {
     private int idClaseDto;
     private String nombreDto;
     private int duracionDto;
-    private List<EstudianteClaseDto> listaVsClaseDto;
 
     public ClaseDto() {
     }
 
-    public ClaseDto(String nombreDto, int duracionDto, List<EstudianteClaseDto> listaVsClaseDto) {
+    public ClaseDto(String nombreDto, int duracionDto) {
        
         this.nombreDto = nombreDto;
         this.duracionDto = duracionDto;
-        this.listaVsClaseDto = listaVsClaseDto;
     }
 
     public int getIdClaseDto() {
@@ -52,13 +50,6 @@ public class ClaseDto {
         this.duracionDto = duracionDto;
     }
 
-    public List<EstudianteClaseDto> getListaVsClaseDto() {
-        return listaVsClaseDto;
-    }
-
-    public void setListaVsClaseDto(List<EstudianteClaseDto> listaVsClaseDto) {
-        this.listaVsClaseDto = listaVsClaseDto;
-    }
-    
+   
     
 }

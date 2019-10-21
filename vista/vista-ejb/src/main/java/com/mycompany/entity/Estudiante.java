@@ -44,10 +44,9 @@ public class Estudiante implements Serializable {
 
     
     
-    public Estudiante(String nombre, int cedula, List<EstudianteClase> listaEstudianteClase) {
+    public Estudiante(String nombre, int cedula) {
         this.nombre = nombre;
         this.cedula = cedula;
-        this.listaVsEstudiante = listaEstudianteClase;
     }
 
     public int getIdEstudiante() {

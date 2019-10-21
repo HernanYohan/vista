@@ -1,18 +1,71 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         <h:form>
-            
-            <h:commandButton action="#{index.crearEstudiante()}" value="Estudiante" />
-            <h:commandButton action="#{index.crearClase()}" value="Clase" />
-            
+            <p:growl id="growl" showDetail="true" sticky="true"/>
+            <p:panel id="pnl" header="Agregar Estudiante" style="margin-bottom:10px;">
+                <h:outputLabel for="nombre" value="Nombre: *" />
+                <p:inputText id="nombre" value="#{index.nombre}" required="true" label="nombre"   >
+                    <f:validateLength minimum="2"   />
+                </p:inputText>
+                <p:message for="nombre" />
+                <br></br>
+                <h:outputLabel for="cedula" value="Cedula: *" />
+                <p:inputText id="cedula"  value="#{index.cuenta}"  label="Cedula" />
+                <p:message for="cedula" />
+                <br></br>
+
+                <p:commandButton update="growl" value="Guardar" icon="pi pi-check" style="margin:0" action="#{index.crearEstudiante(nombre, cedula)}" />
+            </p:panel>
+
+            <p:panel id="pnl" header="Agregar Clase" style="margin-bottom:10px;">
+                <h:outputLabel for="nombre" value="Nombre: *" />
+                <p:inputText id="nombre" value="#{index.nombreC}" required="true" label="nombre"   >
+                    <f:validateLength minimum="2"   />
+                </p:inputText>
+                <p:message for="nombre" />
+                <br></br>
+                <h:outputLabel for="duracion" value="Duracion: *" />
+                <p:inputText id="duracion"  value="#{index.duracion}"  label="Duracion" />
+                <p:message for="duracion" />
+                <br></br>
+
+                <p:commandButton update="growl" value="Guardar" icon="pi pi-check" style="margin:0" action="#{index.crearClase(nombre, duracion)}" />
+            </p:panel>
+
+            <p:panel header="Agregar Estudinate a Clase" style="margin-bottom:10px;">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:outputLabel for="clase" value="Clase: " />
+                    <p:selectOneMenu id="clase" value="#{index.clase}" style="width:150px">
+                        <f:selectItem itemLabel="Select..." itemValue="" noSelectionOption="true" />
+                        <f:selectItems value="#{index.mostrarClases}" var="mc" itemLabel="#{mc.nombreDto}"  itemValue="#{mc.idClaseDto}" />
+                        <f:ajax event="change" listener="#{index.mostrarEstudiantesNoClase}" render="estudiante" execute="@this">  </f:ajax>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="estudiante" value="Estudiante: " />
+                    <p:selectOneMenu id="estudiante" value="#{index.estudiante}" style="width:150px">
+                        <f:selectItem itemLabel="Select..." itemValue="" noSelectionOption="true" />
+                        <f:selectItems value="#{index.estuDto}" var="les" itemLabel="#{les.nombreDto}"  itemValue="#{les.idEstudianteDto}"   />
+                    </p:selectOneMenu>
+                </h:panelGrid>
+
+                <p:separator />
+
+                <p:commandButton value="Guardar" update="growl" action="#{index.crearClaseEstudiante(index.clase, index.estudiante)}" icon="pi pi-check" />
+            </p:panel>
+
+           
         </h:form>
-       
+
+
+
     </h:body>
 </html>
 

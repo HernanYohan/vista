@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,6 +24,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "clase")
+
 public class Clase implements Serializable {
     /**s
      * mapeo de las tablas 
@@ -42,10 +45,9 @@ public class Clase implements Serializable {
     public Clase() {
     }
 
-    public Clase(String nombre, int duracion, List<EstudianteClase> listaVsClase) {
+    public Clase(String nombre, int duracion) {
         this.nombre = nombre;
         this.duracion = duracion;
-        this.listaVsClase = listaVsClase;
     }
 
     public int getIdClase() {

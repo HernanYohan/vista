@@ -5,36 +5,29 @@
  */
 package com.mycompany.dto;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Hernan
  */
-public class VistaDto {
+public class VistaDto implements Serializable{
     
-    private int idEstudianteDto;
+    
     private String estudianteDto;
-    private int idClaseDto;
     private String claseDto;
     private int notaDto;
 
     public VistaDto() {
     }
 
-    public VistaDto(int idEstudianteDto, String estudianteDto, int idClaseDto, String claseDto, int notaDto) {
-        this.idEstudianteDto = idEstudianteDto;
+    public VistaDto(String estudianteDto,String claseDto, int notaDto) {
         this.estudianteDto = estudianteDto;
-        this.idClaseDto = idClaseDto;
         this.claseDto = claseDto;
         this.notaDto = notaDto;
     }
 
-    public int getIdEstudianteDto() {
-        return idEstudianteDto;
-    }
 
-    public void setIdEstudianteDto(int idEstudianteDto) {
-        this.idEstudianteDto = idEstudianteDto;
-    }
 
     public String getEstudianteDto() {
         return estudianteDto;
@@ -44,13 +37,6 @@ public class VistaDto {
         this.estudianteDto = estudianteDto;
     }
 
-    public int getIdClaseDto() {
-        return idClaseDto;
-    }
-
-    public void setIdClaseDto(int idClaseDto) {
-        this.idClaseDto = idClaseDto;
-    }
 
     public String getClaseDto() {
         return claseDto;

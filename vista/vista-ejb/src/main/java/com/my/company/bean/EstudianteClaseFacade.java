@@ -7,9 +7,12 @@ package com.my.company.bean;
 
 import com.mycompany.interfaces.EstudianteClaseFacadeLocal;
 import com.mycompany.entity.EstudianteClase;
+import com.mycompany.entity.Vista;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -28,5 +31,7 @@ public class EstudianteClaseFacade extends AbstractFacade<EstudianteClase> imple
     public EstudianteClaseFacade() {
         super(EstudianteClase.class);
     }
+
     
+   
 }

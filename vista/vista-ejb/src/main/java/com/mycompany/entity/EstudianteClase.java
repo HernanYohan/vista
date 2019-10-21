@@ -15,6 +15,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -45,10 +47,7 @@ public class EstudianteClase implements Serializable {
     public EstudianteClase() {
     }
 
-    public EstudianteClase(int idEstudianteClase, Estudiante estudiante, Clase clase, int nota) {
-        this.idEstudianteClase = idEstudianteClase;
-        this.estudiante = estudiante;
-        this.clase = clase;
+    public EstudianteClase(int nota) {
         this.nota = nota;
     }
 

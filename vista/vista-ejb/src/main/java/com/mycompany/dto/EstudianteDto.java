@@ -16,15 +16,13 @@ public class EstudianteDto {
     private int idEstudianteDto;
     private String nombreDto;
     private int cedulaDto;
-    private List<EstudianteClaseDto> listaVsEstudianteDto;
 
     public EstudianteDto() {
     }
 
-    public EstudianteDto(String nombreDto, int cedulaDto, List<EstudianteClaseDto> listaVsEstudianteDto) {
+    public EstudianteDto(String nombreDto, int cedulaDto) {
         this.nombreDto = nombreDto;
         this.cedulaDto = cedulaDto;
-        this.listaVsEstudianteDto = listaVsEstudianteDto;
     }
 
     public int getIdEstudianteDto() {
@@ -51,16 +49,7 @@ public class EstudianteDto {
         this.cedulaDto = cedulaDto;
     }
 
-    public List<EstudianteClaseDto> getListaVsEstudianteDto() {
-        return listaVsEstudianteDto;
-    }
-
-    public void setListaVsEstudianteDto(List<EstudianteClaseDto> listaVsEstudianteDto) {
-        this.listaVsEstudianteDto = listaVsEstudianteDto;
-    }
-    
-    
-    
-    
+  
+   
     
 }
