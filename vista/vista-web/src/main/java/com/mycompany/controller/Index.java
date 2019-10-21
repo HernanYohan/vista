@@ -41,7 +41,6 @@ public class Index implements Serializable {
     private Integer clase;
     private Integer estudiante;
     private Integer nota;
-    
 
     @EJB
     private EstudianteFacadeLocal estudianteFacade;
@@ -62,6 +61,7 @@ public class Index implements Serializable {
     private EstudianteClase estuclas;
 
     private List<EstudianteDto> EstuDto = new ArrayList<>();
+
     public void crearEstudiante(String nombre, int cedula) {
         EstudianteDto estudianteDto1 = new EstudianteDto(nombre, cedula);
 
@@ -97,20 +97,16 @@ public class Index implements Serializable {
         claseFacade.edit(clases);
         estudianteFacade.edit(estudiantes);
 
-        FacesMessage msg = new FacesMessage("Agregar Estudiante a Clase", "El estudiante" + estudiantes.getNombre() + "  a sido agregada a la clase "+clases.getNombre());
+        FacesMessage msg = new FacesMessage("Agregar Estudiante a Clase", "El estudiante" + estudiantes.getNombre() + "  a sido agregada a la clase " + clases.getNombre());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
     public void mostrarEstudiantesNoClase(AjaxBehaviorEvent event) {
         List<EstudianteClase> listaClaseEstudiante = EstudianteclaseFacade.findAll();
         List<Estudiante> listaEstudiante = estudianteFacade.findAll();
-        EstudianteDto eDto;
-        for (Estudiante estudiante1 : listaEstudiante) {
-            eDto = new EstudianteDto(estudiante1.getNombre(), estudiante1.getCedula());
-            EstuDto.add(eDto);
-        }
+        EstuDto = null;
         int idClase = clase;
-       
+
         for (EstudianteClase estudianteClase1 : listaClaseEstudiante) {
 
             if (estudianteClase1.getClase().getIdClase() == idClase) {
@@ -118,8 +114,12 @@ public class Index implements Serializable {
                 Estudiante estudiante1 = estudianteClase1.getEstudiante();
 
                 for (Estudiante estudiante2 : listaEstudiante) {
-                    if (estudiante1.getCedula() == estudiante2.getCedula()) {
-                        EstuDto.remove(estudiante2);
+                    if (estudiante1.getCedula() != estudiante2.getCedula()) {
+                        EstudianteDto eDto;
+                        for (Estudiante estudiante3 : listaEstudiante) {
+                            eDto = new EstudianteDto(estudiante3.getNombre(), estudiante3.getCedula());
+                            EstuDto.add(eDto);
+                        }
                     }
 
                 }
@@ -128,7 +128,6 @@ public class Index implements Serializable {
 
         }
 
-      
     }
 
     public List<ClaseDto> mostrarClases() {
@@ -140,7 +139,7 @@ public class Index implements Serializable {
             cDto = new ClaseDto(c1.getNombre(), c1.getDuracion());
             listaCDto.add(cDto);
         }
-        
+
         return listaCDto;
 
     }
@@ -156,7 +155,6 @@ public class Index implements Serializable {
 
     }
 
-    
     public String getNombre() {
         return nombre;
     }
@@ -276,7 +274,5 @@ public class Index implements Serializable {
     public void setEstuDto(List<EstudianteDto> EstuDto) {
         this.EstuDto = EstuDto;
     }
-
-    
 
 }
